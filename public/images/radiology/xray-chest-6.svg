@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160">
+  <defs>
+    <radialGradient id="xr6lg" cx="38%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="#303030"/>
+      <stop offset="100%" stop-color="#0c0c0c"/>
+    </radialGradient>
+    <radialGradient id="xr6rg" cx="62%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="#2c2c2c"/>
+      <stop offset="100%" stop-color="#0b0b0b"/>
+    </radialGradient>
+    <radialGradient id="xr6hg" cx="48%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#222222"/>
+      <stop offset="100%" stop-color="#101010"/>
+    </radialGradient>
+  </defs>
+
+  <!-- X-ray film base -->
+  <rect width="320" height="160" fill="#050505"/>
+
+  <!-- Soft-tissue chest contour -->
+  <ellipse cx="160" cy="88" rx="150" ry="76" fill="#0e0e0e"/>
+
+  <!-- Left lung field (clear, no infiltrates) -->
+  <ellipse cx="88" cy="88" rx="52" ry="60" fill="url(#xr6lg)"/>
+  <!-- Subtle lung markings — normal vascularity -->
+  <ellipse cx="88" cy="82" rx="42" ry="48" fill="#282828" opacity="0.4"/>
+
+  <!-- Right lung field -->
+  <ellipse cx="226" cy="88" rx="50" ry="60" fill="url(#xr6rg)"/>
+  <ellipse cx="226" cy="82" rx="40" ry="48" fill="#262626" opacity="0.4"/>
+
+  <!-- Heart shadow — NORMAL SIZE (rx=44, within 50% of ~290 chest width) -->
+  <ellipse cx="152" cy="102" rx="44" ry="38" fill="url(#xr6hg)"/>
+
+  <!-- Spine -->
+  <rect x="154" y="12" width="12" height="142" rx="5" fill="#c8c8c8" opacity="0.72"/>
+  <ellipse cx="160" cy="28"  rx="5" ry="4" fill="#e2e2e2" opacity="0.35"/>
+  <ellipse cx="160" cy="46"  rx="5" ry="4" fill="#e0e0e0" opacity="0.3"/>
+  <ellipse cx="160" cy="64"  rx="5" ry="4" fill="#dedede" opacity="0.28"/>
+  <ellipse cx="160" cy="82"  rx="5" ry="4" fill="#dcdcdc" opacity="0.25"/>
+  <ellipse cx="160" cy="100" rx="5" ry="4" fill="#dadada" opacity="0.22"/>
+  <ellipse cx="160" cy="118" rx="5" ry="4" fill="#d8d8d8" opacity="0.2"/>
+
+  <!-- Clavicles -->
+  <path d="M158 20 Q116 16 76 30" stroke="#cdcdcd" stroke-width="2.5" fill="none"/>
+  <path d="M162 20 Q204 16 244 30" stroke="#cdcdcd" stroke-width="2.5" fill="none"/>
+
+  <!-- Left ribs -->
+  <path d="M152 28 Q100 30 50 52" stroke="#b8b8b8" stroke-width="2"   fill="none" opacity="0.65"/>
+  <path d="M152 40 Q95  44 44 68"  stroke="#b2b2b2" stroke-width="1.9" fill="none" opacity="0.58"/>
+  <path d="M152 52 Q90  58 40 84"  stroke="#acacac" stroke-width="1.8" fill="none" opacity="0.52"/>
+  <path d="M152 65 Q86  72 38 100" stroke="#a6a6a6" stroke-width="1.7" fill="none" opacity="0.46"/>
+  <path d="M152 78 Q83  86 38 116" stroke="#a0a0a0" stroke-width="1.7" fill="none" opacity="0.40"/>
+  <path d="M152 92 Q80  99 42 133" stroke="#999999" stroke-width="1.5" fill="none" opacity="0.34"/>
+
+  <!-- Right ribs -->
+  <path d="M168 28 Q220 30 270 52" stroke="#b8b8b8" stroke-width="2"   fill="none" opacity="0.65"/>
+  <path d="M168 40 Q225 44 276 68" stroke="#b2b2b2" stroke-width="1.9" fill="none" opacity="0.58"/>
+  <path d="M168 52 Q230 58 280 84" stroke="#acacac" stroke-width="1.8" fill="none" opacity="0.52"/>
+  <path d="M168 65 Q234 72 282 100" stroke="#a6a6a6" stroke-width="1.7" fill="none" opacity="0.46"/>
+  <path d="M168 78 Q237 86 282 116" stroke="#a0a0a0" stroke-width="1.7" fill="none" opacity="0.40"/>
+  <path d="M168 92 Q240 99 278 133" stroke="#999999" stroke-width="1.5" fill="none" opacity="0.34"/>
+
+  <!-- Trachea -->
+  <rect x="155" y="12" width="10" height="34" rx="4" fill="#252525"/>
+  <path d="M160 46 Q148 52 138 62" stroke="#303030" stroke-width="3" fill="none"/>
+  <path d="M160 46 Q172 52 182 62" stroke="#303030" stroke-width="3" fill="none"/>
+
+  <!-- Diaphragm (well-defined, normal) -->
+  <path d="M36 148 Q100 132 160 135 Q220 132 284 148" stroke="#b8b8b8" stroke-width="2.2" fill="none" opacity="0.5"/>
+
+  <!-- Lung vessels (hilar markings, normal prominence) -->
+  <line x1="130" y1="58" x2="106" y2="84"  stroke="#777" stroke-width="1.2" opacity="0.28"/>
+  <line x1="133" y1="60" x2="112" y2="90"  stroke="#777" stroke-width="1.0" opacity="0.22"/>
+  <line x1="190" y1="58" x2="214" y2="84"  stroke="#777" stroke-width="1.2" opacity="0.28"/>
+  <line x1="187" y1="60" x2="208" y2="90"  stroke="#777" stroke-width="1.0" opacity="0.22"/>
+
+  <!-- Normal label -->
+  <text x="295" y="155" font-family="monospace" font-size="7" fill="#3a3a3a" text-anchor="end">PA CHEST</text>
+  <text x="8"   y="155" font-family="monospace" font-size="6.5" fill="#2a4a2a">ANNUAL</text>
+</svg>

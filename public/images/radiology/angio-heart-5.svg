@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160">
+  <defs>
+    <filter id="ang5glow">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="ang5softglow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Angiography: pure black background (contrast fills vessels) -->
+  <rect width="320" height="160" fill="#000000"/>
+
+  <!-- Faint cardiac silhouette in background -->
+  <ellipse cx="155" cy="90" rx="110" ry="75" fill="#050505" stroke="#0d0d0d" stroke-width="1"/>
+
+  <!-- ===  CORONARY ARTERY TREE  ===
+       Left system: LM → LAD + LCX
+       Right system (partial) visible on right -->
+
+  <!-- Aortic root / LM ostium origin (top center, bright) -->
+  <circle cx="162" cy="42" r="5" fill="#e8e8e8" filter="url(#ang5glow)"/>
+
+  <!-- Left Main (LM) — short horizontal left -->
+  <line x1="162" y1="42" x2="144" y2="48"
+        stroke="#e0e0e0" stroke-width="3.5" filter="url(#ang5glow)"/>
+
+  <!-- LAD — Left Anterior Descending — goes downward along IVS -->
+  <path d="M144,48 Q138,62 134,80 Q130,100 128,124 Q127,136 130,148"
+        stroke="#d8d8d8" stroke-width="2.8" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- D1 — First diagonal branch off LAD -->
+  <path d="M136,72 Q126,80 112,92 Q102,100 95,112"
+        stroke="#c0c0c0" stroke-width="2" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- D2 — Second diagonal -->
+  <path d="M131,90 Q120,98 108,112 Q100,122 96,134"
+        stroke="#b0b0b0" stroke-width="1.6" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- Septal perforators (short, going right from LAD) -->
+  <line x1="134" y1="82"  x2="144" y2="86"  stroke="#909090" stroke-width="1.2" opacity="0.7"/>
+  <line x1="133" y1="96"  x2="143" y2="100" stroke="#909090" stroke-width="1.2" opacity="0.6"/>
+  <line x1="131" y1="110" x2="141" y2="114" stroke="#888888" stroke-width="1.2" opacity="0.55"/>
+
+  <!-- LCX — Left Circumflex — arcs left and posteriorly -->
+  <path d="M144,48 Q134,58 124,68 Q112,80 108,96 Q106,108 110,120"
+        stroke="#cccccc" stroke-width="2.5" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- OM1 — Obtuse marginal off LCX -->
+  <path d="M118,82 Q108,90 98,100 Q90,112 88,126"
+        stroke="#b4b4b4" stroke-width="1.8" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- OM2 -->
+  <path d="M112,100 Q102,110 96,120 Q90,130 88,142"
+        stroke="#a0a0a0" stroke-width="1.4" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- STENT segment — highlighted brighter on LAD (patient had angioplasty, stent patent) -->
+  <path d="M134,80 Q131,90 130,100"
+        stroke="#ffffff" stroke-width="3.5" fill="none" opacity="0.9" filter="url(#ang5softglow)"/>
+  <!-- Stent strut lines (crosshatch) -->
+  <line x1="135" y1="83"  x2="129" y2="85"  stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+  <line x1="134" y1="88"  x2="128" y2="90"  stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+  <line x1="133" y1="93"  x2="127" y2="95"  stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+  <line x1="132" y1="98"  x2="126" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+
+  <!-- RCA — Right Coronary Artery — goes right from aortic root -->
+  <path d="M162,42 Q180,44 194,52 Q210,62 218,80 Q224,96 220,114 Q216,130 208,144"
+        stroke="#c8c8c8" stroke-width="2.5" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- PDA — Posterior Descending off RCA -->
+  <path d="M210,128 Q196,134 184,142 Q174,148 168,154"
+        stroke="#b0b0b0" stroke-width="1.8" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- Acute marginal off RCA -->
+  <path d="M220,88 Q232,94 240,104 Q248,114 248,128"
+        stroke="#a8a8a8" stroke-width="1.6" fill="none" filter="url(#ang5glow)"/>
+
+  <!-- Labels -->
+  <text x="136" y="40"  font-family="monospace" font-size="6.5" fill="#888">LAD</text>
+  <text x="102" y="88"  font-family="monospace" font-size="6"   fill="#777">LCX</text>
+  <text x="224" y="68"  font-family="monospace" font-size="6.5" fill="#888">RCA</text>
+
+  <!-- Stent annotation -->
+  <text x="106" y="90" font-family="monospace" font-size="5.5" fill="#ffffff" opacity="0.6">STENT</text>
+  <line x1="118" y1="89" x2="131" y2="89" stroke="#ffffff" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Imaging label -->
+  <text x="6"   y="12"  font-family="monospace" font-size="7" fill="#444">LCA</text>
+  <text x="6"   y="20"  font-family="monospace" font-size="6" fill="#383838">TIMI-3 FLOW</text>
+  <text x="314" y="12"  font-family="monospace" font-size="6.5" fill="#444" text-anchor="end">ANGIO</text>
+</svg>

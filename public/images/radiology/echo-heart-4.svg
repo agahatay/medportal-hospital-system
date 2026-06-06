@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160">
+  <defs>
+    <!-- Ultrasound sector gradient: bright near transducer, dark far field -->
+    <radialGradient id="ech4sector" cx="50%" cy="0%" r="100%" fx="50%" fy="0%">
+      <stop offset="0%"   stop-color="#383838"/>
+      <stop offset="40%"  stop-color="#1e1e1e"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <!-- Speckle noise -->
+    <filter id="ech4speckle" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75 0.5" numOctaves="3" seed="5" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 0.15
+                0 0 0 0 0.15
+                0 0 0 0 0.15
+                0 0 0 8 -3" result="mask"/>
+      <feComposite in="SourceGraphic" in2="mask" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background: probe/machine dark -->
+  <rect width="320" height="160" fill="#03060e"/>
+
+  <!-- Apical 4-chamber view: sector/fan originates at top-center (transducer) -->
+  <!-- Fan angle ~85 degrees, depth ~150px -->
+  <!-- Fan boundary: apex at (160, 4), left edge at (52, 154), right edge at (268, 154) -->
+  <path d="M160,4 L52,154 A130,130 0 0,0 268,154 Z"
+        fill="url(#ech4sector)"/>
+
+  <!-- Speckle texture overlay -->
+  <path d="M160,4 L52,154 A130,130 0 0,0 268,154 Z"
+        fill="#1a1a1a" opacity="0.25" filter="url(#ech4speckle)"/>
+
+  <!-- ===  HEART CHAMBERS  === -->
+  <!-- The 4 chambers in apical view:
+       LV (left ventricle) = bottom left  — largest
+       RV (right ventricle) = bottom right — smaller, triangular
+       LA (left atrium) = top left
+       RA (right atrium) = top right
+       Central fibrous body / AV valves at center -->
+
+  <!-- Interventricular septum (IVS) — vertical divider, slightly left of center -->
+  <line x1="155" y1="28" x2="148" y2="130" stroke="#a0a0a0" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Interatrial septum -->
+  <line x1="155" y1="28" x2="162" y2="65"  stroke="#888888" stroke-width="1.8" opacity="0.7"/>
+
+  <!-- LV free wall (left lateral border) -->
+  <path d="M110,54 Q88,90 100,130 Q130,148 148,130" stroke="#b0b0b0" stroke-width="2" fill="none" opacity="0.8"/>
+
+  <!-- RV free wall (right lateral border, thinner) -->
+  <path d="M204,54 Q218,86 210,118 Q195,134 172,130" stroke="#909090" stroke-width="1.8" fill="none" opacity="0.7"/>
+
+  <!-- LV apex (bright, echogenic) -->
+  <ellipse cx="126" cy="134" rx="14" ry="6" fill="#707070" opacity="0.6"/>
+
+  <!-- RV apex -->
+  <ellipse cx="190" cy="126" rx="10" ry="5" fill="#585858" opacity="0.5"/>
+
+  <!-- AV valve plane (mitral left, tricuspid right) — leaflets at mid-height -->
+  <!-- Mitral valve (MV) leaflets -->
+  <path d="M118,72 Q140,85 148,80" stroke="#cccccc" stroke-width="1.8" fill="none" opacity="0.9"/>
+  <path d="M148,80 Q156,85 162,72" stroke="#cccccc" stroke-width="1.8" fill="none" opacity="0.9"/>
+
+  <!-- Tricuspid valve (TV) leaflets -->
+  <path d="M162,72 Q170,84 178,80" stroke="#b8b8b8" stroke-width="1.6" fill="none" opacity="0.8"/>
+  <path d="M178,80 Q186,84 200,72" stroke="#b8b8b8" stroke-width="1.6" fill="none" opacity="0.8"/>
+
+  <!-- LA/RA posterior walls -->
+  <path d="M110,54 Q132,42 155,44" stroke="#808080" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M204,54 Q182,42 162,44" stroke="#707070" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- Pericardium outline (bright, outer) -->
+  <path d="M160,4 L52,154 A130,130 0 0,0 268,154 Z"
+        fill="none" stroke="#4a4a4a" stroke-width="1.2"/>
+
+  <!-- Depth markers (right side, standard echo) -->
+  <line x1="272" y1="4"   x2="278" y2="4"   stroke="#2a5a2a" stroke-width="1"/>
+  <line x1="272" y1="44"  x2="278" y2="44"  stroke="#2a5a2a" stroke-width="1"/>
+  <line x1="272" y1="84"  x2="278" y2="84"  stroke="#2a5a2a" stroke-width="1"/>
+  <line x1="272" y1="124" x2="278" y2="124" stroke="#2a5a2a" stroke-width="1"/>
+  <text x="280" y="47"  font-family="monospace" font-size="6" fill="#2a5a2a">2</text>
+  <text x="280" y="87"  font-family="monospace" font-size="6" fill="#2a5a2a">4</text>
+  <text x="280" y="127" font-family="monospace" font-size="6" fill="#2a5a2a">6</text>
+
+  <!-- Chamber labels -->
+  <text x="115" y="106" font-family="monospace" font-size="7.5" fill="#e0e0e0" opacity="0.7">LV</text>
+  <text x="186" y="100" font-family="monospace" font-size="7.5" fill="#c0c0c0" opacity="0.65">RV</text>
+  <text x="128" y="55"  font-family="monospace" font-size="7" fill="#a0a0a0" opacity="0.6">LA</text>
+  <text x="175" y="55"  font-family="monospace" font-size="7" fill="#909090" opacity="0.55">RA</text>
+
+  <!-- Header label -->
+  <text x="6"   y="12" font-family="monospace" font-size="7" fill="#3a6a3a">ECHO 4CH</text>
+  <text x="6"   y="20" font-family="monospace" font-size="6" fill="#2a5a2a">LVEF 52%</text>
+</svg>
