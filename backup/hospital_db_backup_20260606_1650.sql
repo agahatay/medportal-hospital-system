@@ -1,24 +1,5 @@
 mysqldump: [Warning] Using a password on the command line interface can be insecure.
--- MySQL dump 10.13  Distrib 8.0.45, for Win64 (x86_64)
---
--- Host: localhost    Database: hospital_db
--- ------------------------------------------------------
--- Server version	8.0.45
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `appointments`
---
 
 DROP TABLE IF EXISTS `appointments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -39,11 +20,7 @@ CREATE TABLE `appointments` (
   CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`doctor_id`) ON DELETE CASCADE,
   CONSTRAINT `chk_valid_time_slot` CHECK ((minute(`appointment_date`) in (0,20,40)))
 ) ENGINE=InnoDB AUTO_INCREMENT=1656 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `appointments`
---
 
 LOCK TABLES `appointments` WRITE;
 /*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
@@ -51,9 +28,7 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `doctor_id`, `appoin
 /*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `billing`
---
+
 
 DROP TABLE IF EXISTS `billing`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -75,9 +50,7 @@ CREATE TABLE `billing` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1654 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `billing`
---
+
 
 LOCK TABLES `billing` WRITE;
 /*!40000 ALTER TABLE `billing` DISABLE KEYS */;
@@ -85,9 +58,7 @@ INSERT INTO `billing` (`bill_id`, `appointment_id`, `total_amount`, `payment_sta
 /*!40000 ALTER TABLE `billing` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `departments`
---
+
 
 DROP TABLE IF EXISTS `departments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -101,9 +72,7 @@ CREATE TABLE `departments` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `departments`
---
+
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
@@ -111,9 +80,7 @@ INSERT INTO `departments` (`department_id`, `name`, `location`, `created_at`) VA
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `doctor_departments`
---
+
 
 DROP TABLE IF EXISTS `doctor_departments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -128,9 +95,7 @@ CREATE TABLE `doctor_departments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `doctor_departments`
---
+
 
 LOCK TABLES `doctor_departments` WRITE;
 /*!40000 ALTER TABLE `doctor_departments` DISABLE KEYS */;
@@ -138,9 +103,7 @@ INSERT INTO `doctor_departments` (`doctor_id`, `department_id`) VALUES (1,1),(10
 /*!40000 ALTER TABLE `doctor_departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `doctor_schedules`
---
+
 
 DROP TABLE IF EXISTS `doctor_schedules`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -158,9 +121,7 @@ CREATE TABLE `doctor_schedules` (
 ) ENGINE=InnoDB AUTO_INCREMENT=501 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `doctor_schedules`
---
+
 
 LOCK TABLES `doctor_schedules` WRITE;
 /*!40000 ALTER TABLE `doctor_schedules` DISABLE KEYS */;
@@ -168,9 +129,7 @@ INSERT INTO `doctor_schedules` (`id`, `doctor_id`, `day_of_week`, `start_time`, 
 /*!40000 ALTER TABLE `doctor_schedules` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `doctors`
---
+
 
 DROP TABLE IF EXISTS `doctors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -191,9 +150,7 @@ CREATE TABLE `doctors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `doctors`
---
+
 
 LOCK TABLES `doctors` WRITE;
 /*!40000 ALTER TABLE `doctors` DISABLE KEYS */;
@@ -201,9 +158,7 @@ INSERT INTO `doctors` (`doctor_id`, `user_id`, `first_name`, `last_name`, `speci
 /*!40000 ALTER TABLE `doctors` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `medicalrecords`
---
+
 
 DROP TABLE IF EXISTS `medicalrecords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -227,9 +182,6 @@ CREATE TABLE `medicalrecords` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1398 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `medicalrecords`
---
 
 LOCK TABLES `medicalrecords` WRITE;
 /*!40000 ALTER TABLE `medicalrecords` DISABLE KEYS */;
